@@ -8,3 +8,5 @@ This repository is going to provide a simple example of using Godot's built-in V
 4. Required GDScripts files to control the Vehicle Node.
 
 The project uses and Interpolated Camera(deprecated) to accelerate and deaccelerate the camera movements behind the car.
+
+The godot project is released under MIT license and you can use the project in any way you like. For copyright information on the car model and textures, please visit the respective websites to find for yourself.
