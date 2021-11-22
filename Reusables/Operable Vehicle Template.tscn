@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://Reusables/Models/Materials/BlueCar.tscn" type="PackedScene" id=3]
+
+[node name="Operable Vehicle Template" type="Spatial"]
+
+[node name="BlueCar" parent="." groups=["Player"] instance=ExtResource( 3 )]
+collision_layer = 2
+mass = 50.0
+
+[node name="Car Follow" type="Spatial" parent="BlueCar"]
+transform = Transform( -1, -2.26267e-08, 8.44439e-08, 0, 0.965926, 0.258819, -8.74228e-08, 0.258819, -0.965926, 0, 1, 0 )
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+keep_aspect = 0
+v_offset = 0.5
+near = 0.01
+target = NodePath("../BlueCar/Car Follow")
+speed = 15.0
+enabled = true
+
+[node name="SpringArm" type="SpringArm" parent="InterpolatedCamera"]
+spring_length = 3.5
+
+[node name="Camera" type="Camera" parent="InterpolatedCamera/SpringArm"]
+environment = ExtResource( 1 )
+current = true
+far = 5000.0
